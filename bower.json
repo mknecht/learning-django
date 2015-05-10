@@ -1,0 +1,17 @@
+{
+  "name": "learning-django",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mknecht/learning-django",
+  "authors": [
+    "Murat Knecht"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
