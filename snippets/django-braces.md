@@ -1,3 +1,9 @@
+---
+type: project
+url: https://github.com/brack3t/django-braces
+tags: project views
+addedOn: 2015-05-11
+---
 # Django Braces
 
 Useful mixins for class-based views, such as:

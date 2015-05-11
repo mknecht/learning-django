@@ -1,6 +1,11 @@
 <div>
 {{#each articles}}
-<article>{{{text}}}</article>
+<article>{{{text}}}
+
+  {{#each tags:num}}
+  <div class="ui label">{{tags[num]}}</div>
+  {{/each}}
+</article>
 {{/each}}
 </div>
 
@@ -14,14 +19,48 @@ component.exports = {
     articles: [],
   },
   oninit: function(){
-    function addArticle(text_in_markdown) {
-      component.get('articles').push({text: markdown.toHTML(text_in_markdown)})
-      component.update('articles')
+    function addArticle(article) {
+      component.get('articles').push({
+        tags: article.properties.tags || [],
+        text: markdown.toHTML(article.textInMarkdown)
+      })
+    }
+
+    function parseArticle(text) {
+      var properties = {}
+      var markdownLines = []
+      var inHeader = false
+
+      text.split(/\n/).forEach(function(line, idx) {
+        if (line === "---") {
+          if (idx === 0) { inHeader = true }
+          else if (inHeader) { inHeader = false }
+          return
+        }
+        if (inHeader) {
+          key_value = line.split(/: /)
+          if (!key_value) {
+            console.log("Ignoring property", line)
+            return
+          }
+          properties[key_value[0]] = key_value[1]
+          if (key_value[0] === 'tags') {
+            properties.tags = properties.tags.split(/\s+/)
+          }
+        } else {
+          markdownLines.push(line)
+        }
+      })
+
+      return {
+        properties: properties,
+        textInMarkdown: markdownLines.join("\n")
+      }
     }
 
     function parseArticleTextAndAdd(text) {
-      // enteredText.match(/\n/g)
-      addArticle(text)
+      var article = parseArticle(text)
+      addArticle(article)
     }
 
     var component = this
