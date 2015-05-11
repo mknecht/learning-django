@@ -1,22 +1,31 @@
-$(function () {
-  var ractive = new Ractive({
-    el: 'content',
-    template: '#template',
-    data: {
-      articles: []
-    }
-  });
 
-  $.get('snippets/django-performance-4-simple-things.md').then(function(result) {
-    ractive.get('articles').push({text: markdown.toHTML(result)})
-    ractive.update('articles')
-  })
-  $.get('snippets/django-debug-toolbar.md').then(function(result) {
-    ractive.get('articles').push({text: markdown.toHTML(result)})
-    ractive.update('articles')
-  })
-  $.get('snippets/django-braces.md').then(function(result) {
-    ractive.get('articles').push({text: markdown.toHTML(result)})
-    ractive.update('articles')
-  })
+requirejs.config({
+  baseUrl: 'js',
+  paths: {
+    jquery: 'vendor/jquery-2.1.4.min',
+    markdown: 'vendor/markdown',
+    ractive: 'vendor/ractive-0.7.3.min',
+    rvc: "vendor/rvc-0.3.1"
+  },
+  shim: {
+    markdown: {
+      exports: 'markdown'
+    }
+  }
+});
+
+
+requirejs([
+  "jquery",
+  "rvc",
+  "vendor/modernizr-2.8.3.min",
+  "vendor/semantic-1.12.2.min"
+]);
+
+
+requirejs(['jquery', 'ractive', 'markdown', 'rvc!components/mainview'],
+  function($, Ractive, markdown, Mainview) {
+    var ractive = new Mainview({
+      el: '#content'
+    });
 })

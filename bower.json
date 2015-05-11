@@ -13,5 +13,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "markdown": "~0.5.0",
+    "requirejs": "~2.1.17",
+    "jquery": "~2.1.4",
+    "ractive": "~0.7.3",
+    "rvc": "~0.3.1"
+  }
 }

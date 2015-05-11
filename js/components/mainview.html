@@ -1,0 +1,32 @@
+<div>
+{{#each articles}}
+<article>{{{text}}}</article>
+{{/each}}
+</div>
+
+<style></style>
+
+<script>
+component.exports = {
+  isolated: true,
+  twoway: false,
+  data: {
+    articles: [],
+  },
+  oninit: function(){
+    component = this
+    $.get('snippets/django-performance-4-simple-things.md').then(function(result) {
+      component.get('articles').push({text: markdown.toHTML(result)})
+      component.update('articles')
+    })
+    $.get('snippets/django-debug-toolbar.md').then(function(result) {
+      component.get('articles').push({text: markdown.toHTML(result)})
+      component.update('articles')
+    })
+    $.get('snippets/django-braces.md').then(function(result) {
+      component.get('articles').push({text: markdown.toHTML(result)})
+      component.update('articles')
+    })
+  }
+}
+</script>
