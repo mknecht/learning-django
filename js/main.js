@@ -15,4 +15,8 @@ $(function () {
     ractive.get('articles').push({text: markdown.toHTML(result)})
     ractive.update('articles')
   })
+  $.get('snippets/django-braces.md').then(function(result) {
+    ractive.get('articles').push({text: markdown.toHTML(result)})
+    ractive.update('articles')
+  })
 })
