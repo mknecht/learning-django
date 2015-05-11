@@ -66,23 +66,23 @@ body {
 }
 
 /* ===================
-    ALL: Orange Theme
+    ALL: Sand-colored Theme
    =================== */
 
 .header-container {
     padding:10px 0px;
-    border-bottom: 20px solid #e44d26;
+    border-bottom: 20px solid #8b6508;
 }
 
 .footer-container,
 .main aside {
-    border-top: 20px solid #e44d26;
+    border-top: 20px solid #8b6508;
 }
 
 .header-container,
 .footer-container,
 .main aside {
-    background: #f16529;
+    background: #b8860b;
 }
 
 .title {
@@ -111,7 +111,7 @@ nav a {
     font-weight: bold;
 
     color: white;
-    background: #e44d26;
+    background: #b8860b;
 }
 
 nav a:hover,
@@ -131,8 +131,20 @@ nav a:hover {
     padding: 30px 0;
 }
 
+.main article {
+    border: solid 5px #b8860b;
+    border-top-width: 15px;
+    margin: 1em;
+    padding: 1em;
+}
+
 .main article h1 {
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+.main article h2 {
+    color: #b8860b;
+    font-size: 1.5em;
 }
 
 .main aside {
