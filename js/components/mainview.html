@@ -14,19 +14,20 @@ component.exports = {
     articles: [],
   },
   oninit: function(){
-    component = this
-    $.get('snippets/django-performance-4-simple-things.md').then(function(result) {
-      component.get('articles').push({text: markdown.toHTML(result)})
+    function addArticle(text_in_markdown) {
+      component.get('articles').push({text: markdown.toHTML(text_in_markdown)})
       component.update('articles')
-    })
-    $.get('snippets/django-debug-toolbar.md').then(function(result) {
-      component.get('articles').push({text: markdown.toHTML(result)})
-      component.update('articles')
-    })
-    $.get('snippets/django-braces.md').then(function(result) {
-      component.get('articles').push({text: markdown.toHTML(result)})
-      component.update('articles')
-    })
+    }
+
+    function parseArticleTextAndAdd(text) {
+      // enteredText.match(/\n/g)
+      addArticle(text)
+    }
+
+    var component = this
+    $.get('snippets/django-performance-4-simple-things.md').then(parseArticleTextAndAdd)
+    $.get('snippets/django-debug-toolbar.md').then(parseArticleTextAndAdd)
+    $.get('snippets/django-braces.md').then(parseArticleTextAndAdd)
   }
 }
 </script>
