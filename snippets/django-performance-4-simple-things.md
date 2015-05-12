@@ -1,6 +1,10 @@
-# Django Performance: 4 Simple Things
-Blog post by *Frank Wiles*
-
+---
+addedOn: 2015-05-11
+tags: 15-min settings weird-defaults
+title: Django Performance: 4 Simple Things
+type: blog-post
+url: http://django-extensions.readthedocs.org/en/latest/shell_plus.html
+---
 [http://www.revsys.com/blog/2015/may/06/django-performance-simple-things/](http://www.revsys.com/blog/2015/may/06/django-performance-simple-things/)
 
 Four performance tweaks for Django. Three of them are about fixing astounding default settings:

@@ -1,9 +1,13 @@
 <div>
 {{#each articles}}
-<article>{{{text}}}
+<article>
 
-  {{#each tags:num}}
-  <div class="ui label">{{tags[num]}}</div>
+  <h1>{{properties.title}}</h1>
+
+  {{{text}}}
+
+  {{#each properties.tags:num}}
+  <div class="ui label">{{properties.tags[num]}}</div>
   {{/each}}
 </article>
 {{/each}}
@@ -21,7 +25,7 @@ component.exports = {
   oninit: function(){
     function addArticle(article) {
       component.get('articles').push({
-        tags: article.properties.tags || [],
+        properties: article.properties,
         text: markdown.toHTML(article.textInMarkdown)
       })
     }
@@ -64,9 +68,10 @@ component.exports = {
     }
 
     var component = this
-    $.get('snippets/django-performance-4-simple-things.md').then(parseArticleTextAndAdd)
-    $.get('snippets/django-debug-toolbar.md').then(parseArticleTextAndAdd)
     $.get('snippets/django-braces.md').then(parseArticleTextAndAdd)
+    $.get('snippets/django-debug-toolbar.md').then(parseArticleTextAndAdd)
+    $.get('snippets/django-performance-4-simple-things.md').then(parseArticleTextAndAdd)
+    $.get('snippets/shell-plus.md').then(parseArticleTextAndAdd)
   }
 }
 </script>
