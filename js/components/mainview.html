@@ -1,79 +1,20 @@
 <div>
-{{#each articles}}
-<article>
-
-  <h1>{{properties.title}}</h1>
-
-  {{{text}}}
-
-  {{#each properties.tags:num}}
-  <div class="ui label">{{properties.tags[num]}}</div>
-  {{/each}}
-</article>
-{{/each}}
+  <snippet snippet-id="django-braces"/>
+  <snippet snippet-id="django-debug-toolbar"/>
+  <snippet snippet-id="django-performance-4-simple-things"/>
+  <snippet snippet-id="runserver-plus"/>
+  <snippet snippet-id="shell-plus"/>
 </div>
 
 <style></style>
 
 <script>
+
 component.exports = {
   isolated: true,
   twoway: false,
-  data: {
-    articles: [],
-  },
-  oninit: function(){
-    function addArticle(article) {
-      component.get('articles').push({
-        properties: article.properties,
-        text: markdown.toHTML(article.textInMarkdown)
-      })
-    }
-
-    function parseArticle(text) {
-      var properties = {}
-      var markdownLines = []
-      var inHeader = false
-      var key
-
-      text.split(/\n/).forEach(function(line, idx) {
-        if (line === "---") {
-          if (idx === 0) { inHeader = true }
-          else if (inHeader) { inHeader = false }
-          return
-        }
-        if (inHeader) {
-          key_value = line.split(/:/)
-          if (!key_value) {
-            console.log("Ignoring property", line)
-            return
-          }
-          key = key_value[0].trim()
-          properties[key] = key_value.slice(1).join(":")
-          if (key_value[0] === 'tags') {
-            properties.tags = properties.tags.split(/\s+/)
-          }
-        } else {
-          markdownLines.push(line)
-        }
-      })
-
-      return {
-        properties: properties,
-        textInMarkdown: markdownLines.join("\n")
-      }
-    }
-
-    function parseArticleTextAndAdd(text) {
-      var article = parseArticle(text)
-      addArticle(article)
-    }
-
-    var component = this
-    $.get('snippets/django-braces.md').then(parseArticleTextAndAdd)
-    $.get('snippets/django-debug-toolbar.md').then(parseArticleTextAndAdd)
-    $.get('snippets/django-performance-4-simple-things.md').then(parseArticleTextAndAdd)
-    $.get('snippets/shell-plus.md').then(parseArticleTextAndAdd)
+  components: {
+    'snippet': require('rvc!components/snippet'),
   }
 }
 </script>

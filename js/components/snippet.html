@@ -1,0 +1,68 @@
+<article>
+
+  <h1>{{properties.title}}</h1>
+
+  {{{text}}}
+
+  {{#each properties.tags:num}}
+  <div class="ui label">{{properties.tags[num]}}</div>
+  {{/each}}
+</article>
+
+
+<style></style>
+
+<script>
+component.exports = {
+  isolated: true,
+  twoway: false,
+  oninit: function(){
+    var component = this
+
+    function addArticle(article) {
+      component.set('properties', article.properties);
+      component.set('text', markdown.toHTML(article.textInMarkdown));
+    }
+
+    function parseArticle(text) {
+      var properties = {}
+      var markdownLines = []
+      var inHeader = false
+      var key
+
+      text.split(/\n/).forEach(function(line, idx) {
+        if (line === "---") {
+          if (idx === 0) { inHeader = true }
+          else if (inHeader) { inHeader = false }
+          return
+        }
+        if (inHeader) {
+          key_value = line.split(/:/)
+          if (!key_value) {
+            console.log("Ignoring property", line)
+            return
+          }
+          key = key_value[0].trim()
+          properties[key] = key_value.slice(1).join(":")
+          if (key_value[0] === 'tags') {
+            properties.tags = properties.tags.split(/\s+/).filter(function(it) { return it })
+          }
+        } else {
+          markdownLines.push(line)
+        }
+      })
+
+      return {
+        properties: properties,
+        textInMarkdown: markdownLines.join("\n")
+      }
+    }
+
+    function parseArticleTextAndAdd(text) {
+      addArticle(parseArticle(text))
+    }
+
+    $.get('snippet-sources/' + this.get('snippet-id') + '.md').then(parseArticleTextAndAdd)
+  }
+}
+</script>

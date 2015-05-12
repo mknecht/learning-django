@@ -13,4 +13,4 @@ Four performance tweaks for Django. Three of them are about fixing astounding de
 * [caching templates](https://docs.djangoproject.com/en/1.8/ref/templates/api/#django.template.loaders.cached.Loader)
 * using the [cache for settings](https://docs.djangoproject.com/en/1.6/topics/http/sessions/#using-cached-sessions)
 
-Then, he mentions the [Django Debug Toolbar](https://github.com/django-debug-toolbar/django-debug-toolbar), which is awesome.
+Then, he mentions the [Django Debug Toolbar](#!snippets/django-debug-toolbar), which is awesome.
