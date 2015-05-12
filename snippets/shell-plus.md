@@ -1,7 +1,7 @@
 ---
 addedOn: 2015-05-11
 tags: 15-min efficiency manage.py tools
-title: Shell Plus
+title: shell_plus
 type: thought
 url: http://django-extensions.readthedocs.org/en/latest/shell_plus.html
 ---

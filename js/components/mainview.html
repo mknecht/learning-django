@@ -34,6 +34,7 @@ component.exports = {
       var properties = {}
       var markdownLines = []
       var inHeader = false
+      var key
 
       text.split(/\n/).forEach(function(line, idx) {
         if (line === "---") {
@@ -42,12 +43,13 @@ component.exports = {
           return
         }
         if (inHeader) {
-          key_value = line.split(/: /)
+          key_value = line.split(/:/)
           if (!key_value) {
             console.log("Ignoring property", line)
             return
           }
-          properties[key_value[0]] = key_value[1]
+          key = key_value[0].trim()
+          properties[key] = key_value.slice(1).join(":")
           if (key_value[0] === 'tags') {
             properties.tags = properties.tags.split(/\s+/)
           }
