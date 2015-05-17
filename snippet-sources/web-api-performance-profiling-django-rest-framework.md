@@ -1,7 +1,7 @@
 ---
 addedOn: 2015-05-17
 author: Tom Christie
-tags: novice django-rest-framework performance REST
+tags: 15-min novice django-rest-framework performance REST
 type: blog-post
 title: Web API performance: profiling Django REST framework
 url: http://www.dabapps.com/blog/api-performance-profiling-django-rest-framework/
