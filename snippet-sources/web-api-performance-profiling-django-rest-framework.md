@@ -1,5 +1,5 @@
 ---
-addedOn: 2015-05-11
+addedOn: 2015-05-17
 author: Tom Christie
 tags: novice django-rest-framework performance REST
 type: blog-post
