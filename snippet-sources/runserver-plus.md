@@ -12,4 +12,4 @@ Why? On each 500 page, `runserver_plus` gives you a [Werkzeug](http://werkzeug.p
 
 And [other stuff](http://django-extensions.readthedocs.org/en/latest/runserver_plus.html).
 
-Another [Django Extensions](#django-extensions) goodie.
+Another [Django Extensions](./snippets/django-extensions) goodie.

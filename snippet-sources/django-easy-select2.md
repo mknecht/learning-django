@@ -8,7 +8,9 @@ Imagine a model UI in Django admin. It has a foreign key to another model with h
 
 ![Image of selectbox in Django admin with proposals for completion](img/django-easy-select2.png)
 
-That's a [Select2](https://select2.github.io/) search field, provided by [django-easy-select](https://github.com/asyncee/django-easy-select2). [Docs](http://django-easy-select2.readthedocs.org/en/latest/)
+That's a [Select2](https://select2.github.io/) search field, provided by [django-easy-select](https://github.com/asyncee/django-easy-select2).
+
+The [docs are here](http://django-easy-select2.readthedocs.org/en/latest/).
 
 ## What else can it do?
 

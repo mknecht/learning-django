@@ -13,6 +13,9 @@
 <style></style>
 
 <script>
+
+page = require('page')
+
 component.exports = {
   isolated: true,
   twoway: false,
@@ -63,7 +66,7 @@ component.exports = {
       addArticle(parseArticle(text))
     }
 
-    $.get('snippet-sources/' + this.get('snippet-id') + '.md').then(parseArticleTextAndAdd)
+    $.get(page.base() + '/snippet-sources/' + this.get('snippet-id') + '.md').then(parseArticleTextAndAdd)
   }
 }
 </script>

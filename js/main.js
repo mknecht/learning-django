@@ -44,10 +44,14 @@ requirejs([
       })
     }
 
-    page('/snippets/:snippetId', showArticle)
+    page.base('/learning-django')
     page('/', showIndex)
+    page('/snippets/:snippetId', showArticle)
 
     page({
+      dispatch: false,
       hashbang: true,
     })
+
+    page("/")
 })

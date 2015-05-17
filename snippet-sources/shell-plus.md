@@ -8,7 +8,7 @@ url: http://django-extensions.readthedocs.org/en/latest/shell_plus.html
 
 [shell\_plus](http://django-extensions.readthedocs.org/en/latest/shell_plus.html) is a shell for manage.py that *imports all models on startup*. Amazing, in't?
 
-Its is part of [Django Extensions](#django-extensions).
+Its is part of [Django Extensions](./snippets/django-extensions).
 
 ## Which shell as default?
 
