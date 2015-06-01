@@ -47,7 +47,7 @@ TypeError: Error when calling the metaclass bases
 order (MRO) for bases ModelAdmin, VersionAdmin
 ```
 
-For example, I got the above, while wanting to add version control to the `Note` class in the [django-easy-select2](#django-easy-select2) demo app.
+For example, I got the above, while wanting to add version control to the `Note` class in the [django-easy-select2](#!/snippets/django-easy-select2) demo app.
 
 ## Links
 

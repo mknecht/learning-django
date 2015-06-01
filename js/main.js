@@ -44,7 +44,7 @@ requirejs([
       })
     }
 
-    page.base('/learning-django')
+    page.base('/learning-django/')
     page('/', showIndex)
     page('/snippets/:snippetId', showArticle)
 
