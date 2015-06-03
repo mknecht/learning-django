@@ -1,6 +1,6 @@
 ---
 addedOn: 2015-05-11
-tags: project views
+tags: 15-min project views
 type: project
 title: Django Braces
 url: https://github.com/brack3t/django-braces
