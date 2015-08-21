@@ -6,11 +6,16 @@ requirejs.config({
     markdown: 'vendor/markdown',
     page: 'vendor/page-1.6.3',
     ractive: 'vendor/ractive-0.7.3.min',
-    rvc: "vendor/rvc-0.3.1"
+    reflux: 'vendor/reflux-0.2.7.min',
+    rvc: "vendor/rvc-0.3.1",
+    semantic: "vendor/semantic-1.12.2.min",
   },
   shim: {
     markdown: {
-      exports: 'markdown'
+      exports: 'markdown',
+    },
+    semantic: {
+      deps: ['jquery'],
     }
   }
 });
@@ -19,8 +24,8 @@ requirejs.config({
 requirejs([
   "jquery",
   "rvc",
+  "semantic",
   "vendor/modernizr-2.8.3.min",
-  "vendor/semantic-1.12.2.min"
 ]);
 
 

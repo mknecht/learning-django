@@ -1,27 +1,43 @@
 <div>
-  <snippet snippet-id="custom-user-models-reusable-apps"/>
-  <snippet snippet-id="deprecated-projects"/>
-  <snippet snippet-id="django-braces"/>
-  <snippet snippet-id="django-debug-toolbar"/>
-  <snippet snippet-id="django-easy-select2"/>
-  <snippet snippet-id="django-performance-4-simple-things"/>
-  <snippet snippet-id="django-quicky"/>
-  <snippet snippet-id="django-reversion"/>
-  <snippet snippet-id="runserver-plus"/>
-  <snippet snippet-id="scaling"/>
-  <snippet snippet-id="shell-plus"/>
-  <snippet snippet-id="web-api-performance-profiling-django-rest-framework"/>
+{{#if snippetsDatas.length == 0}}
+Loading ...
+{{else}}
+  <!-- {{#each snippetsData:idx}}
+  <snippet snippet-data="{{ snippetsData[idx] }}"/>
+  {{/each}} -->
+  <div id="articles">
+  </div>
+{{/if}}
 </div>
 
-<style></style>
-
 <script>
+SnippetActions = require('actions/snippets')
+SnippetsStore = require('stores/snippets')
+Snippet = require('rvc!components/snippet')
 
 component.exports = {
   isolated: true,
   twoway: false,
-  components: {
-    'snippet': require('rvc!components/snippet'),
+  data: {
+    loading: SnippetsStore.getIdCount(),
+    snippetIds: [],
+    snippetsData: [],
+  },
+  oninit: function() {
+    var component = this;
+    SnippetsStore.listen(function(snippetsData) {
+      var arrayWithSnippetsData = []
+      ;[].push.apply(arrayWithSnippetsData, snippetsData)
+      /* component.set('snippetsData', arrayWithSnippetsData) */
+      arrayWithSnippetsData.forEach(function(snippetData, idx) {
+        new Snippet({
+          append: true,
+          el: '#articles',
+          data: {'snippetData': snippetData},
+        })
+      })
+    })
+    SnippetActions.loadSnippets()
   }
 }
 </script>

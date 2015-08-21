@@ -23,12 +23,12 @@ component.exports = {
     var component = this
 
     function addArticle(article) {
-      component.set('id', component.get('snippet-id'));
+      component.set('id', article.id);
       component.set('properties', article.properties);
       component.set('text', markdown.toHTML(article.textInMarkdown));
     }
 
-    function parseArticle(text) {
+    function parseArticle(snippetId, text) {
       var properties = {}
       var markdownLines = []
       var inHeader = false
@@ -57,16 +57,16 @@ component.exports = {
       })
 
       return {
+        id: snippetId,
         properties: properties,
-        textInMarkdown: markdownLines.join("\n")
+        textInMarkdown: markdownLines.join("\n"),
       }
     }
 
-    function parseArticleTextAndAdd(text) {
-      addArticle(parseArticle(text))
-    }
-
-    $.get(page.base() + '/snippet-sources/' + this.get('snippet-id') + '.md').then(parseArticleTextAndAdd)
+    addArticle(parseArticle(
+      component.get('snippetData').id,
+      component.get('snippetData').text
+    ))
   }
 }
 </script>
