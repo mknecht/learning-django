@@ -2,18 +2,19 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
   var SnippetActions = require('actions/snippets')
 
   var ids = [
-      'custom-user-models-reusable-apps',
-      'deprecated-projects',
-      'django-braces',
-      'django-debug-toolbar',
-      'django-easy-select2',
-      'django-performance-4-simple-things',
-      'django-quicky',
-      'django-reversion',
-      'runserver-plus',
-      'shell-plus',
-      'web-api-performance-profiling-django-rest-framework',
-    ]
+    'custom-user-models-reusable-apps',
+    'deprecated-projects',
+    'django-braces',
+    'django-debug-toolbar',
+    'django-easy-select2',
+    'django-flat-theme',
+    'django-performance-4-simple-things',
+    'django-quicky',
+    'django-reversion',
+    'runserver-plus',
+    'shell-plus',
+    'web-api-performance-profiling-django-rest-framework',
+  ]
 
   function getSnippets(publishFunc) {
     return $.when.apply($, ids.map(function(snippetId) {
