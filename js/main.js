@@ -43,10 +43,22 @@ requirejs([
     }
 
     function showArticle(ctx) {
-      new Snippet({
-        el: '#content',
-        data: {'snippet-id': ctx.params.snippetId},
-      })
+      var SnippetActions = require('actions/snippets')
+      var SnippetsStore = require('stores/snippets')
+      SnippetsStore.listen(function(snippetsData) {
+        var arrayWithSnippetsData = []
+        ;[].push.apply(arrayWithSnippetsData, snippetsData)
+        /* component.set('snippetsData', arrayWithSnippetsData) */
+        arrayWithSnippetsData.filter(function(snippetData, idx) {
+          if (snippetData.id == ctx.params.snippetId) {
+            new Snippet({
+              el: '#content',
+              data: {'snippetData': snippetData},
+            })
+          }
+        })
+      });
+      SnippetActions.loadSnippets()
     }
 
     page.base('/learning-django/')

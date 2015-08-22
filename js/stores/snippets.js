@@ -1,4 +1,4 @@
-define (['jquery', 'reflux'], function($, Reflux) {
+define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
   var SnippetActions = require('actions/snippets')
 
   var ids = [

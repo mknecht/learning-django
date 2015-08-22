@@ -90,6 +90,14 @@ body {
     font-family: Sacramento;
     font-size: 35px;
 }
+.title a {
+    color: white;
+}
+
+.title a:hover {
+    color: #8b6508;
+}
+
 
 /* ==============
     MOBILE: Menu
