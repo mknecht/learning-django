@@ -8,6 +8,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
     'django-debug-toolbar',
     'django-easy-select2',
     'django-flat-theme',
+    'django-model-utils',
     'django-performance-4-simple-things',
     'django-quicky',
     'django-reversion',
