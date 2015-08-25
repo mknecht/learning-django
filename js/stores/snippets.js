@@ -2,6 +2,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
   var SnippetActions = require('actions/snippets')
 
   var ids = [
+    'ajax',
     'custom-user-models-reusable-apps',
     'deprecated-projects',
     'django-braces',
