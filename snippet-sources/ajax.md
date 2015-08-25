@@ -1,6 +1,6 @@
 ---
 addedOn: 2015-08-25
-tags: ajax projects json yaml
+tags: 15-min ajax projects json yaml
 type: thought
 title: AJAX
 ---
