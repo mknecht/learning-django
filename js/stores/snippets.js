@@ -5,6 +5,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
     'ajax',
     'custom-user-models-reusable-apps',
     'deprecated-projects',
+    'django-annoying',
     'django-braces',
     'django-debug-toolbar',
     'django-easy-select2',
