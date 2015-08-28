@@ -16,6 +16,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
     'django-reversion',
     'runserver-plus',
     'shell-plus',
+    'switching-users',
     'web-api-performance-profiling-django-rest-framework',
   ]
 
