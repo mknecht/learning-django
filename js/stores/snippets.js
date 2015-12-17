@@ -14,6 +14,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
     'django-performance-4-simple-things',
     'django-quicky',
     'django-reversion',
+    'django-security-interview-questions',
     'get-started-quickly',
     'runserver-plus',
     'shell-plus',
