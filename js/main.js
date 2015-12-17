@@ -62,13 +62,11 @@ requirejs([
     }
 
     page.base('/learning-django/')
-    page('/', showIndex)
     page('/snippets/:snippetId', showArticle)
+    page('/', showIndex)
 
     page({
-      dispatch: false,
+      dispatch: true,
       hashbang: true,
     })
-
-    page("/")
 })
