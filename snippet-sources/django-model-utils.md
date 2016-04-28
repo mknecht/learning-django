@@ -54,9 +54,9 @@ Makes Django choices on model values easy to use.
             choices=STATUS,
             default=STATUS.draft,  # No literals, only names!
         )
-    ```
 
-    ```python
+
+    python
     from model_utils import Choices
 
     class Article(models.Model):

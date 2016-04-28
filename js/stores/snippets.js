@@ -18,6 +18,7 @@ define (['jquery', 'page', 'reflux'], function($, page, Reflux) {
     'get-started-quickly',
     'runserver-plus',
     'shell-plus',
+    'speed-up-django-tests',
     'switching-users',
     'web-api-performance-profiling-django-rest-framework',
   ]
